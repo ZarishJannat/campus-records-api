@@ -1,0 +1,241 @@
+{
+  "info": {
+    "name": "Student Management API",
+    "description": "Complete Postman collection for Student Management REST API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    },
+    {
+      "key": "studentId",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Student Management",
+      "item": [
+        {
+          "name": "Get All Students",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/students",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students"]
+            },
+            "description": "Retrieve all students with optional search, filter, sort, and pagination"
+          },
+          "response": []
+        },
+        {
+          "name": "Search Students by Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/students?name=Ali",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students"],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "Ali"
+                }
+              ]
+            },
+            "description": "Search students by name (case-insensitive)"
+          },
+          "response": []
+        },
+        {
+          "name": "Filter by Department",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/students?department=Computer Science",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students"],
+              "query": [
+                {
+                  "key": "department",
+                  "value": "Computer Science"
+                }
+              ]
+            },
+            "description": "Filter students by department"
+          },
+          "response": []
+        },
+        {
+          "name": "Filter by Semester",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/students?semester=7",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students"],
+              "query": [
+                {
+                  "key": "semester",
+                  "value": "7"
+                }
+              ]
+            },
+            "description": "Filter students by semester"
+          },
+          "response": []
+        },
+        {
+          "name": "Sort by CGPA",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/students?sort=cgpa",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students"],
+              "query": [
+                {
+                  "key": "sort",
+                  "value": "cgpa"
+                }
+              ]
+            },
+            "description": "Sort students by CGPA (descending)"
+          },
+          "response": []
+        },
+        {
+          "name": "Pagination",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/students?page=1&limit=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "Get students with pagination"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Student by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/students/{{studentId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students", "{{studentId}}"]
+            },
+            "description": "Retrieve a single student by ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Student",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Ali Raza\",\n  \"rollNumber\": \"2023-CS-101\",\n  \"department\": \"Computer Science\",\n  \"semester\": 7,\n  \"email\": \"ali@gmail.com\",\n  \"phone\": \"03001234567\",\n  \"cgpa\": 3.71,\n  \"gender\": \"Male\",\n  \"age\": 22,\n  \"address\": \"Lahore\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/students",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students"]
+            },
+            "description": "Create a new student record"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Student",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"semester\": 8,\n  \"cgpa\": 3.85\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/students/{{studentId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students", "{{studentId}}"]
+            },
+            "description": "Update student information"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Student",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/students/{{studentId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students", "{{studentId}}"]
+            },
+            "description": "Delete a student record"
+          },
+          "response": []
+        },
+        {
+          "name": "Invalid Request - Validation Test",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"AB\",\n  \"email\": \"invalid-email\",\n  \"semester\": 10,\n  \"cgpa\": 5.0\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/students",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "students"]
+            },
+            "description": "Test validation with invalid data"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
