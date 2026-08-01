@@ -1,10 +1,10 @@
-# Student Management API
+# Campus Record API
 
 A production-quality REST API for managing student records, built with Node.js, Express, MongoDB, and Mongoose following MVC architecture and industry best practices.
 
 ## 🚀 Project Overview
 
-This Student Management API provides a complete backend solution for managing student information with comprehensive validation, error handling, and advanced features like search, filtering, sorting, and pagination.
+This Campus Record API provides a complete backend solution for managing student information with comprehensive validation, error handling, and advanced features like search, filtering, sorting, and pagination.
 
 ## 🛠 Tech Stack
 
@@ -72,7 +72,7 @@ student-management-api/
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd student-management-api
+   cd campus-record-api
    ```
 
 2. **Install dependencies**
@@ -85,7 +85,7 @@ student-management-api/
    Create a `.env` file in the root directory:
    ```env
    PORT=5000
-   MONGODB_URI=mongodb://localhost:27017/student-management
+   MONGODB_URI=mongodb://localhost:27017/campus-record
    NODE_ENV=development
    ```
 
